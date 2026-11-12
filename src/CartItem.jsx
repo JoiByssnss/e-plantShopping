@@ -88,4 +88,6 @@ const CartItem = ({ onContinueShopping }) => {
 
 export default CartItem;
 
+export const removeItem = createSlice.actions.removeItem;
 
+export const updateQuantity = createSlice.actions.updateQuantity;

@@ -324,3 +324,5 @@ function ProductList({ onHomeClick }) {
 }
 
 export default ProductList;
+
+export const addItem = createSlice.actions.addItem;
