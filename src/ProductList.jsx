@@ -312,8 +312,8 @@ function ProductList({ onHomeClick }) {
         <div className="product-card" key={plantIndex}> {/* Unique key for each plant card */}
           <img 
             className="product-image" 
-            src={plant.image} // Display the plant image
-            alt={plant.name} // Alt text for accessibility
+            src={plant.image}
+            alt={plant.name}
           />
           <div className="product-title">{plant.name}</div> {/* Display plant name */}
           {/* Display other plant details like description and cost */}
@@ -322,9 +322,9 @@ function ProductList({ onHomeClick }) {
           <button
             className="product-button"
             onClick={() => handleAddToCart(plant)}
-            disabled={addedToCart[plant.name]} // Handle adding plant to cart
+            disabled={addedToCart[plant.name]}
           >
-             {addedToCart[plant.name] ? 'Added ✓' : 'Add to Cart'}
+             {addedToCart[plant.name] ? 'Added to Cart' : 'Add to Cart'}
           </button>
         </div>
       ))}
