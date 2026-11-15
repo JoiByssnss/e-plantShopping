@@ -5,7 +5,7 @@ import './CartItem.css';
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
- 
+
   // Helper function to extract numerical value from price string like "$15"
   const parseCost = (cost) => {
     if (typeof cost === 'number') return cost;
@@ -13,12 +13,12 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   // Calculate total amount for all products in the cart
-  const calculateTotalAmount = () => {    
-    let total = 0; 
+  const calculateTotalAmount = () => {
+    let total = 0;
     cart.forEach(item => {
-    total += parseCost(item.cost) * item.quantity;
-  });
-  return total;
+      total += parseCost(item.cost) * item.quantity;
+    });
+    return total;
   };
 
   const handleContinueShopping = (e) => {
@@ -27,16 +27,15 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleIncrement = (item) => {
-    dispatch(updateQuantity({  name: item.name, quantity: item.quantity + 1 }));
-
+    dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
   };
 
   const handleDecrement = (item) => {
     if (item.quantity > 1) {
-        dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
-      } else {
-        dispatch(removeItem(item.name));
-      }
+      dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
+    } else {
+      dispatch(removeItem(item.name));
+    }
   };
 
   const handleRemove = (item) => {
@@ -47,7 +46,8 @@ const CartItem = ({ onContinueShopping }) => {
   const calculateTotalCost = (item) => {
     return parseCost(item.cost) * item.quantity;
   };
-  const handleCheckoutShopping = (e) => {
+
+  const handleCheckoutShopping = () => {
     alert('Functionality to be added for future reference');
   };
 
